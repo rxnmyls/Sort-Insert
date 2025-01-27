@@ -1,0 +1,46 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class InsertionSortExample {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input: An array of integers
+        System.out.print("Enter number of elements: ");
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+        
+        // Call insertionSort function and store result
+        insertionSort(array);
+        
+        // Output: Print sorted array to console
+        System.out.println("Sorted Array: " + Arrays.toString(array));
+        
+        scanner.close();
+    }
+
+    // Function to sort an array using insertion sort
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        
+        // Outer loop for each element starting from index 1
+        for (int i = 1; i < n; i++) {
+            int currentValue = arr[i]; // Value to be positioned
+            int j = i - 1; // Index for comparing with previous elements
+            
+            // Inner loop for shifting elements greater than currentValue
+            while (j >= 0 && arr[j] > currentValue) {
+                arr[j + 1] = arr[j]; // Shift element one position right
+                j--; // Move left in the array
+            }
+            
+            arr[j + 1] = currentValue; // Place currentValue at its correct position
+        }
+    }
+}
