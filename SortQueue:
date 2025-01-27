@@ -4,12 +4,12 @@ import java.util.Queue;
 public class QueueSort {
     // Function to sort a queue
     public static Queue<Integer> sortQueue(Queue<Integer> input) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(input); // Create a priority queue
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(input); // priority queue
         Queue<Integer> sortedQueue = new LinkedList<>();
         while (!priorityQueue.isEmpty()) {
             sortedQueue.add(priorityQueue.poll()); // Poll from priority queue and add to sorted queue
         }
-        return sortedQueue; // Return the sorted queue
+        return sortedQueue; // Return sorted queue
     }
     public static void main(String[] args) {
         Queue<Integer> queue = new LinkedList<>();
