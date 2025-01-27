@@ -1,0 +1,30 @@
+import java.util.Stack;
+public class StackSort {
+    // Function to sort a stack
+    public static Stack<Integer> sortStack(Stack<Integer> input) {
+        Stack<Integer> tempStack = new Stack<>();
+        while (!input.isEmpty()) {
+            // Pop an element from the original stack
+            int current = input.pop()
+            // While temporary stack is not empty and the top of the stack is greater than current
+            while (!tempStack.isEmpty() && tempStack.peek() > current) {
+                input.push(tempStack.pop()); // Push from tempStack back to input
+            }
+            // Push current element onto the temporary stack
+            tempStack.push(current);
+        }
+        return tempStack; // Return the sorted stack
+    }
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(34);
+        stack.push(3);
+        stack.push(31);
+        stack.push(98);
+        stack.push(92);
+        System.out.println("Original Stack: " + stack);
+        Stack<Integer> sortedStack = sortStack(stack);
+        
+        System.out.println("Sorted Stack: " + sortedStack);
+    }
+}
