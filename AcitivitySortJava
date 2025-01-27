@@ -1,0 +1,47 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BubbleSortExample 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input: An array of integers
+        System.out.print("Enter number of elements: ");
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+        
+        // Call BubbleSort function and store result
+        bubbleSort(array);
+        
+        // Output: Print sorted array to console
+        System.out.println("Sorted Array: " + Arrays.toString(array));
+        
+        scanner.close();
+    }
+
+    public static void bubbleSort(int[] array) {
+        int size = array.length;
+        boolean swapped;
+
+        do {
+            swapped = false; // Assume no swaps will occur this pass
+            
+            for (int i = 0; i < size - 1; i++) {
+                // Compare adjacent elements
+                if (array[i] > array[i + 1]) {
+                    // Swap elements if they are in wrong order
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    
+                    swapped = true; // A swap has occurred
+                }
+            }
+        } while (swapped); // Repeat until no swaps occur
+    }
+}
